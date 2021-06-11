@@ -1,6 +1,6 @@
 #include "sort.h"
-void quick(int *array, size_t size, size_t low, size_t high);
-int partition(int *array, size_t size, size_t low, size_t high);
+void quick(int *array, size_t size, int low, int high);
+int partition(int *array, size_t size, int low, int high);
 void swap(int *a, int *b);
 
 /**
@@ -25,7 +25,7 @@ void quick_sort(int *array, size_t size)
  * Return: void
  */
 
-void quick(int *array, size_t size, size_t low, size_t high)
+void quick(int *array, size_t size, int low, int high)
 {
 	size_t p; //Partition index
 
@@ -45,11 +45,10 @@ void quick(int *array, size_t size, size_t low, size_t high)
  * Return: i + 1
  */
 
-int partition(int *array, size_t size, size_t low, size_t high)
+int partition(int *array, size_t size, int low, int high)
 {
-	int pivot;
-	size_t j;
-	size_t i = (low - 1);
+	int pivot, j;
+	int i = (low - 1);
 	pivot = array[high];
 
 	for (j = high; j < high; j++)
