@@ -1,7 +1,4 @@
 #include "sort.h"
-void quick(int *array, size_t size, int low, int high);
-int partition(int *array, size_t size, int low, int high);
-void swap(int *a, int *b);
 
 /**
  * quick_sort - Entry point
@@ -20,6 +17,7 @@ void quick_sort(int *array, size_t size)
 /**
  * quick - Entry point
  * @array: pointer integer
+ * @size: size_t
  * @low: size_t
  * @high: size_t
  * Return: void
@@ -27,7 +25,7 @@ void quick_sort(int *array, size_t size)
 
 void quick(int *array, size_t size, int low, int high)
 {
-	size_t p; //Partition index
+	size_t p; /* Partition index */
 
 	if (low < high)
 	{
@@ -40,9 +38,10 @@ void quick(int *array, size_t size, int low, int high)
 /**
  * partition - Entry point
  * @array: pointer integer
+ * @size: size_t
  * @low: size_t
  * @high: size_t
- * Return: i + 1
+ * Return: j
  */
 
 int partition(int *array, size_t size, int low, int high)
@@ -57,7 +56,7 @@ int partition(int *array, size_t size, int low, int high)
 		{
 			if (j < i)
 			{
-				swap(array + i, array + j);
+				swap1(array + i, array + j);
 				print_array(array, size);
 			}
 			j++;
@@ -65,7 +64,7 @@ int partition(int *array, size_t size, int low, int high)
 	}
 	if (array[j] > *pivot)
 	{
-		swap(array + j, pivot);
+		swap1(array + j, pivot);
 		print_array(array, size);
 	}
 
@@ -73,12 +72,12 @@ int partition(int *array, size_t size, int low, int high)
 }
 
 /**
- * swap - Function swap
- * @xp: pointer listint_t
- * @yp: pointer listint_t
+ * swap1 - Function swap1
+ * @a: pointer listint_t
+ * @b: pointer listint_t
  * Return: void
  */
-void swap(int *a, int *b)
+void swap1(int *a, int *b)
 {
 	int temp = *a;
 	*a = *b;
