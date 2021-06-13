@@ -24,7 +24,7 @@ void selection_sort(int *array, size_t size)
 {
 	size_t i, j, min_idx;
 
-	if (array == NULL)
+	if (array == NULL || size < 2)
 		return;
 
 	for (i = 0; i < size - 1; i++)
