@@ -24,29 +24,29 @@ void swaps(int *a, int *b)
  */
 int parti_lomuto(int *array, size_t size, int left, int right)
 {
-	int *pivote, encima, debajo;
+	int *pivote, high, low;
 
 	pivote = array + right;
-	for (encima = debajo = left; debajo < right; debajo++)
+	for (high = low = left; low < right; low++)
 	{
-		if (array[debajo] < *pivote)
+		if (array[low] < *pivote)
 		{
-			if (encima < debajo)
+			if (high < low)
 			{
-				swaps(array + debajo, array + encima);
+				swaps(array + low, array + high);
 				print_array(array, size);
 			}
-			encima++;
+			high++;
 		}
 	}
 
-	if (array[encima] > *pivote)
+	if (array[high] > *pivote)
 	{
-		swaps(array + encima, pivote);
+		swaps(array + high, pivote);
 		print_array(array, size);
 	}
 
-	return (encima);
+	return (high);
 }
 
 /**
