@@ -11,7 +11,7 @@ void quick_sort(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 
-	quick(array, size, 0, size - 1);
+	quick(array, 0, size - 1, size);
 }
 
 /**
@@ -23,15 +23,15 @@ void quick_sort(int *array, size_t size)
  * Return: void
  */
 
-void quick(int *array, size_t size, int low, int high)
+void quick(int *array, int low, int high, size_t size)
 {
-	size_t p; /* Partition index */
+	int l_p = 0;
 
 	if (low < high)
 	{
-		p = partition(array, size, low, high);
-		quick(array, size, low, p - 1);
-		quick(array, size, p + 1, high);
+		l_p = partition(array, low, high, size);
+		quick(array, low, l_p - 1, size);
+		quickarray, l_p + 1, high, size);
 	}
 }
 
@@ -44,7 +44,7 @@ void quick(int *array, size_t size, int low, int high)
  * Return: j
  */
 
-int partition(int *array, size_t size, int low, int high)
+int partition(int *array, int low, int high, size_t size)
 {
 	int *pivot, i, j;
 
