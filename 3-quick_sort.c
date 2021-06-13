@@ -46,40 +46,23 @@ void quick(int *array, int low, int high, size_t size)
 
 int partition(int *array, int low, int high, size_t size)
 {
-	int *pivot, i, j;
+	int i = 0, j = 0, pivot = 0, aux = 0;
 
-	pivot = array + high;
+	pivot = array[higher];
+	i = low;
 
-	for (j = i = low; i < high; i++)
+	for (j = lower; j < high; ++j)
 	{
-		if (array[i] < *pivot)
+		if (array[j] < pivot)
 		{
-			if (j < i)
-			{
-				swap1(array + i, array + j);
+			aux = array[i];
+			array[i] = array[j];
+			array[j] = aux;
+
+			if (aux != array[i])
 				print_array(array, size);
-			}
-			j++;
+
+			++i;
 		}
 	}
-	if (array[j] > *pivot)
-	{
-		swap1(array + j, pivot);
-		print_array(array, size);
-	}
-
-	return (j);
-}
-
-/**
- * swap1 - Function swap1
- * @a: pointer listint_t
- * @b: pointer listint_t
- * Return: void
- */
-void swap1(int *a, int *b)
-{
-	int temp = *a;
-	*a = *b;
-	*b = temp;
 }
