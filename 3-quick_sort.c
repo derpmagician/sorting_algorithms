@@ -36,11 +36,11 @@ void quick(int *array, int lower, int higher, size_t size)
 }
 
 /**
- * partition - Entry point
+ * lomuto_partition - Entry point
  * @array: pointer integer
  * @size: size_t
- * @low: size_t
- * @high: size_t
+ * @lower: size_t
+ * @higher: size_t
  * Return: j
  */
 
