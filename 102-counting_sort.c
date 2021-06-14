@@ -1,10 +1,12 @@
 #include "sort.h"
 
 /**
- * main - Entry point
+ * counting_sort - sort array with counting method
+ * @array: array to sort
+ * @size: size of array
  *
- * Return: Always 0
- */
+ * Return: nothing
+*/
 
 void counting_sort(int *array, size_t size)
 {
