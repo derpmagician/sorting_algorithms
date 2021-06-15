@@ -1,39 +1,49 @@
 #include "sort.h"
-
 /**
- * main - Entry point
- *
- * Return: Always 0
- */
+  * heap_sort - heap sort algorithm
+  * @array: array to sort
+  * @size: size of array
+  */
 void heap_sort(int *array, size_t size)
 {
+	int i, tmp;
 
+	for (i = size / 2 - 1; i >= 0; i--)
+		heapify(array, i, size, size);
+	for (i = size -1; i >=0; i--)
+	{
+		tmp = array[0];
+		array[0] = array[i];
+		array[i] = tmp;
+		print_array(array, size);
+		heapify(array, i, 0, size);
+	}
 }
 /**
- * maxHeapify - Entry point
- *
- * Return: Always 0
- * The function assumes that everything undex given root (element 
- * at index (idx) us already heapified)
+ * heapify - Entry point
+ * @array: array to heapify
+ * @idx: element in the first position of the divided array
+ * @idx2: element in the last position of the divided array
+ * @size: size of the array
+ * Return: void
  */
-
-void maxHeapify(listint_t *maxHeap; int index)
+void heapify(int *array, int idx, int idx2, size_t size)
 {
-	int largest = index; /* Inicialize largest as root*/
-	int left = (index << 1) + 1; /* left = 2 * index + 1 */
-	int right = (index + 1) << 1; /* right = 2 * index +2 */
+	int max = idx2;
+	int left = 2 * idx2 + 1;
+	int right = 2 * idx2 + 2;
+	int tmp;
 
-	/*see if left child of root exists and is greater than root */
-	if (left < maxHeap->n && maxHeap->next[left] > maxHeap->next[largest])
-		largest = left;
-	/* See if right child of root exists and is greater than the largest so far */
-	if (right < maxHeap->n && maxHeap->next[right] > maxHeap->next[largest])
-		largest = right;
-
-	/* Change root, if needed */
-	if (largest != index)
+	if (left < idx && array[left] > array[max])
+		max = left;
+	if (right < idx && array[right] > array[max])
+		max = right;
+	if (max != idx2)
 	{
-		swap(&maxHeap->next[largest], &maxHeap->next[index]);
-		maxHeapify(maxHeap, largest);
+		tmp = array[idx2];
+		array[idx2] = array[max];
+		array[max] = tmp;
+		print_array(array, size);
+		heapify(array, idx, max, size);
 	}
 }
