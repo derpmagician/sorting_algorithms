@@ -25,7 +25,7 @@ void swap(int *a, int *b)
 */
 void bit_sort(int *array, size_t msize, int idx, int size, int dir)
 {
-	int half = size/2;
+	int half = size / 2;
 
 	if (size <= 1)
 		return;
