@@ -18,8 +18,8 @@ void heap_sort(int *array, size_t size)
 	while (maxHeap->size > 1)
 	{
 		/**
-		 * The largest item in Heap is stored at the root. Replace
-		 * it with the last item of the heap followed by reducing the
+		 * The largest item in Heap is stored at the root. Replace it
+		 * with the last item of the heap followed by reducing the
 		 * size of heap by 1.
 		 */
 		swap(&maxHeap->array[0], &maxHeap->array[maxHeap->size - 1]);
