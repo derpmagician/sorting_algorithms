@@ -26,10 +26,21 @@ void swap(int *a, int *b)
 void bit_sort(int *array, size_t msize, int idx, int size, int dir)
 {
 	int half = size / 2;
+	char *d = "UP";
 
 	if (size <= 1)
 		return;
 
+	if (dir == 0)
+		d = "DOWN";
+
+	printf("Merging [%d/%ld] (%s):\n", size, msize, d);
+	print_array(array + idx, size);
+
+	bit_sort(array, msize, idx, half, 1);
+	bit_sort(array, msize, idx + half, half, 0);
+
+	printf("Result [%d/%ld] (%s):\n", size, msize, d);
 	print_array(array + idx, size);
 }
 
