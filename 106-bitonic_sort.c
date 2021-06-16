@@ -2,6 +2,7 @@
 
 /**
  * bswap - A utility function to swap to integers
+ * @arr: array of ints
  * @a: pointer integer
  * @b: pointer integer
  * Return: void
