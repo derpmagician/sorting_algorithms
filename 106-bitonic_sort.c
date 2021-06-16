@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * swap - A utility function to swap to integers
+ * bswap - A utility function to swap to integers
  * @a: pointer integer
  * @b: pointer integer
  * Return: void
