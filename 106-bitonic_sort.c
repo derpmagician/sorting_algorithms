@@ -6,11 +6,12 @@
  * @b: pointer integer
  * Return: void
  */
-void swap(int *a, int *b)
+void bswap(int *arr, int a, int b)
 {
-	int tmp = *a;
-	*a = *b;
-	*b = tmp;
+	int aux = arr[a];
+
+	arr[a] = arr[b];
+	arr[b] = aux;
 }
 
 
@@ -32,7 +33,7 @@ void bit_merge(int *array, int idx, int size, int direction)
 
 	for (i = idx; i < idx + step; i++)
 		if (direction == (array[i] > array[i + step]))
-			swap(array, i, i + step);
+			bswap(array, i, i + step);
 
 	bit_merge(array, idx, step, direction);
 	bit_merge(array, idx + step, step, direction);
@@ -63,7 +64,7 @@ void bit_sort(int *array, size_t msize, int idx, int size, int dir)
 
 	bit_sort(array, msize, idx, half, 1);
 	bit_sort(array, msize, idx + half, half, 0);
-	bit_merge(array, idx, size, d);
+	bit_merge(array, idx, size, dir);
 
 	printf("Result [%d/%ld] (%s):\n", size, msize, d);
 	print_array(array + idx, size);
