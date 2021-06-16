@@ -18,6 +18,17 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+/**
+ * struct maxHeap_s - Linked list node, a heap has current and array elements
+ *
+ * @size: Integer stored in the node
+ * @array: Pointer to the array element of the list
+ */
+typedef struct MaxHeap
+{
+    int size;
+    int *array;
+} MaxHeap_t;
 
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
@@ -34,5 +45,20 @@ void counting_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
+
+/* Function utilities for the problem */
+MaxHeap_t* createAndBuildHeap(int *array, int size);
+void maxHeapify(MaxHeap_t* maxHeap, int idx, int *array, size_t size);
+int getMax(int *array, int n);
+void countSort(int *array, int size, int exp);
+
+
+
+
+/* Extra functions */
+void swap(int *xp, int *yp);
+void quick(int *array, size_t size, int low, int high);
+int partition(int *array, size_t size, int low, int high);
+void swap1(int *a, int *b);
 
 #endif

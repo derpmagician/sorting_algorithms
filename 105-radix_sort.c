@@ -1,8 +1,5 @@
 #include "sort.h"
 
-int getMax(int *array, int n);
-void countSort(int *array, int size, int exp);
-
 /**
  * radix_sort - Main function to that sorts arr[] of size n using Radix Sort
  * @array: Pointer integer
@@ -28,6 +25,7 @@ void radix_sort(int *array, size_t size)
 	}
 	free(sz);
 }
+
 /**
  * getMax - A utility function to get maximum value in arr[]
  * @array: Pointer integer
@@ -46,6 +44,7 @@ int getMax(int *array, int n)
 	}
 	return (mx);
 }
+
 /**
  * countSort - A function to do counting sort of array[]
  * @array: Pointer integer
