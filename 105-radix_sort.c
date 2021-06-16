@@ -1,35 +1,6 @@
 #include "sort.h"
 
 /**
- * radix_sort - Main function to that sorts arr[] of size n using Radix Sort
- * @array: Pointer integer
- * @size: Size_t
- * Return: void
- */
-void radix_sort(int *array, size_t size)
-{
-	int exp;
-	int max;
-	int *sz;
-
-	sz = (malloc(sizeof(int) * size));
-	max = getMax(array, size);
-
-	if (!array || size < 2)
-		return;
-
-	if (!sz)
-		return;
-
-	for (exp = 1; max / exp > 0; exp *= 10)
-	{
-		countSort(array, size, exp);
-		print_array(array, size);
-	}
-	free(sz);
-}
-
-/**
  * getMax - A utility function to get maximum value in arr[]
  * @array: Pointer integer
  * @n: integer
@@ -84,4 +55,33 @@ void countSort(int *array, int size, int exp)
 	*/
 	for (i = 0; i < size; i++)
 		array[i] = output[i];
+}
+
+/**
+ * radix_sort - Main function to that sorts arr[] of size n using Radix Sort
+ * @array: Pointer integer
+ * @size: Size_t
+ * Return: void
+ */
+void radix_sort(int *array, size_t size)
+{
+	int exp;
+	int max;
+	int *sz;
+
+	sz = (malloc(sizeof(int) * size));
+	max = getMax(array, size);
+
+	if (!array || size < 2)
+		return;
+
+	if (!sz)
+		return;
+
+	for (exp = 1; max / exp > 0; exp *= 10)
+	{
+		countSort(array, size, exp);
+		print_array(array, size);
+	}
+	free(sz);
 }
