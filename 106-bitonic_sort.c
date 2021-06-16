@@ -62,7 +62,7 @@ void bit_sort(int *array, size_t msize, int idx, int size, int dir)
 
 	bit_sort(array, msize, idx, half, 1);
 	bit_sort(array, msize, idx + half, half, 0);
-	bmerge(array, idx, size, dir);
+	bit_merge(array, idx, size, dir);
 
 	printf("Result [%d/%ld] (%s):\n", size, msize, d);
 	print_array(array + idx, size);
