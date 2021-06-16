@@ -56,7 +56,7 @@ int getMax(int *array, int n)
 void countSort(int *array, int size, int exp)
 {
 	int output[size]; /*Output array*/
-	int i, count[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	int i, count[50] = { 0 };
 	/*Store count of occurrence in count[] */
 	for (i = 0; i < size; i++)
 		count[(array[i] / exp) % 10]++;
