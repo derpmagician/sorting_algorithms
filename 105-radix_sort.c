@@ -4,7 +4,7 @@ int getMax(int *array, int n);
 void countSort(int *array, int size, int exp);
 
 /**
- * radix_sort - Entry point
+ * radix_sort - The main function to that sorts arr[] of size n using Radix Sort
  * @array: Pointer integer
  * @size: Size_t
  * Return: void
@@ -20,7 +20,12 @@ void radix_sort(int *array, size_t size)
 		print_array(array, size);
 	}
 }
-
+/**
+ * radix_sort - A utility function to get maximum value in arr[]
+ * @array: Pointer integer
+ * @n: integer
+ * Return: void
+ */
 int getMax(int *array, int n)
 {
 	int i;
@@ -33,7 +38,13 @@ int getMax(int *array, int n)
 	}
 	return mx;
 }
-
+/**
+ * countSort - A function to do counting sort of array[] according to the digit represented by exp.
+ * @array: Pointer integer
+ * @size: Size_t
+ * @exp: integer
+ * Return: void
+ */
 void countSort(int *array, int size, int exp)
 {
 	int output[size]; /*Output array*/
