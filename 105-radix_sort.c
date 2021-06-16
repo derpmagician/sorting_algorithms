@@ -18,6 +18,9 @@ void radix_sort(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 
+	if (!sz)
+		return;
+
 	for (exp = 1; max / exp > 0; exp *= 10)
 	{
 		countSort(array, size, exp);
@@ -56,7 +59,7 @@ int getMax(int *array, int n)
 void countSort(int *array, int size, int exp)
 {
 	int output[size]; /*Output array*/
-	int i, count[50] = { 0 };
+	int i, count[10] = { 0 };
 	/*Store count of occurrence in count[] */
 	for (i = 0; i < size; i++)
 		count[(array[i] / exp) % 10]++;
