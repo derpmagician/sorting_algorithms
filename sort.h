@@ -26,8 +26,8 @@ typedef struct listint_s
  */
 typedef struct MaxHeap
 {
-    int size;
-    int *array;
+	int size;
+	int *array;
 } MaxHeap_t;
 
 void print_array(const int *array, size_t size);
