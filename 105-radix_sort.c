@@ -13,14 +13,20 @@ void radix_sort(int *array, size_t size)
 {
 	int exp;
 	int max;
+	int *sz;
 
+	sz = (malloc(sizeof(int) * size));
 	max = getMax(array, size);
+
+	if (!array || size < 2)
+		return;
 
 	for (exp = 1; max / exp > 0; exp *= 10)
 	{
 		countSort(array, size, exp);
 		print_array(array, size);
 	}
+	free(sz);
 }
 /**
  * getMax - A utility function to get maximum value in arr[]
