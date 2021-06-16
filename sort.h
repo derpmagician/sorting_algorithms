@@ -47,8 +47,8 @@ void bitonic_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
 
 /* Function utilities for the problem */
-MaxHeap_t* createAndBuildHeap(int *array, int size);
-void maxHeapify(MaxHeap_t* maxHeap, int idx, int *array, size_t size);
+MaxHeap_t *createAndBuildHeap(int *array, int size);
+void maxHeapify(MaxHeap_t *maxHeap, int idx, int *array, size_t size);
 int getMax(int *array, int n);
 void countSort(int *array, int size, int exp);
 
