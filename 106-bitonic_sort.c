@@ -14,6 +14,29 @@ void swap(int *a, int *b)
 }
 
 
+/**
+ * bit_merge - Merges an array with half size step
+ * @array: array of ints
+ * @idx: starting index
+ * @size: Subarray's size
+ * @direction: indicator of the sort order
+*/
+void bit_merge(int *array, int idx, int size, int direction)
+{
+	int i, step;
+
+	if (size <= 1)
+		return;
+
+	step = size / 2;
+
+	for (i = idx; i < idx + step; i++)
+		if (direction == (array[i] > array[i + step]))
+			swap(array, i, i + step);
+
+	bit_merge(array, idx, step, direction);
+	bit_merge(array, idx + step, step, direction);
+}
 
 
 /**
@@ -40,6 +63,7 @@ void bit_sort(int *array, size_t msize, int idx, int size, int dir)
 
 	bit_sort(array, msize, idx, half, 1);
 	bit_sort(array, msize, idx + half, half, 0);
+	bit_merge(array, idx, size, d);
 
 	printf("Result [%d/%ld] (%s):\n", size, msize, d);
 	print_array(array + idx, size);
