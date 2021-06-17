@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * swap - swaps integers at positions `i` and `j` in `array`
+ * swaparr - swaps integers at positions `i` and `j` in `array`
  * @array: array to swap positions
  * @i: left index
  * @j: right index
