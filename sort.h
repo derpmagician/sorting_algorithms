@@ -46,19 +46,4 @@ void heap_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
 
-/* Function utilities for the problem */
-MaxHeap_t *createAndBuildHeap(int *array, int size);
-void maxHeapify(MaxHeap_t *maxHeap, int idx, int *array, size_t size);
-int getMax(int *array, int n);
-void countSort(int *array, int size, int exp);
-
-
-
-
-/* Extra functions */
-void swap(int *xp, int *yp);
-void quick(int *array, size_t size, int low, int high);
-int partition(int *array, size_t size, int low, int high);
-void swap1(int *a, int *b);
-
 #endif
